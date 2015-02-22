@@ -6,7 +6,7 @@ apply plugin: 'osgi'
 group = 'nz.co.edmi'
 version = '1.0-SNAPSHOT'
 
-description = """service-mix-demo"""
+description = """Camel Demo"""
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -14,7 +14,7 @@ targetCompatibility = 1.8
 jar {
   manifest {
     instruction 'Bundle-Vendor', 'Simon'
-    instruction 'Bundle-Description', 'Service-Mix / Camel Demo'
+    instruction 'Bundle-Description', 'Camel Demo'
   }
 }
 
