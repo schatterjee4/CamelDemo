@@ -1,0 +1,53 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'idea'
+apply plugin: 'osgi'
+
+group = 'nz.co.edmi'
+version = '1.0-SNAPSHOT'
+
+description = """service-mix-demo"""
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+jar {
+  manifest {
+    instruction 'Bundle-Vendor', 'Simon'
+    instruction 'Bundle-Description', 'Service-Mix / Camel Demo'
+  }
+}
+
+// TODO make this use local properties for destination
+task deployToLocalServer(type: Copy) {
+  description 'Copies the bundle to a local Service Mix'
+  from('build/libs') {
+    include '*.jar'
+  }
+  into '/opt/service-mix/sm/deploy'
+}
+
+deployToLocalServer.dependsOn build
+
+repositories {
+        
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+
+project.ext {
+  versionJunit = '4.11'
+  versionFest = '2.0M9'
+  versionMockito = '1.10.8'
+  versionCamel = '2.14.1'
+}
+
+
+dependencies {
+  compile "org.apache.camel:camel-blueprint:$versionCamel"
+  compile "org.apache.camel:camel-spring:$versionCamel"
+  testCompile "junit:junit:$versionJunit"
+  testCompile "org.easytesting:fest-assert-core:$versionFest"
+  testCompile "org.mockito:mockito-core:$versionMockito"
+}
+
+

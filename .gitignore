@@ -1,0 +1,5 @@
+/build
+.idea
+ServiceMixDemo.iml
+.gradle
+*.iws
