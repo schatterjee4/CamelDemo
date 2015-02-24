@@ -41,18 +41,18 @@ public class FileReverser extends RouteBuilder {
     @Override
     public void process(Exchange exchange) throws Exception {
       Message inMessage = exchange.getIn();
-      org.apache.camel.component.file.GenericFile inFile = (org.apache.camel.component.file.GenericFile) inMessage.getBody();
-      InputStream is = new FileInputStream((File) inFile.getFile());
-      java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
-      String content = s.hasNext() ? s.next() : "";
-      is.close();
+
+      // type conversion is awesome
+      // The body is actually a file, but we can tell camel to make it into a string for us
+      String content = inMessage.getBody(String.class);
+
       String backwards = new StringBuilder(content).reverse().toString() + "\r\n";
 
       // In only  will keep all of the header from the file that was picked up
       inMessage.setBody(backwards);
 
       // In out will loose the headers
-//      exchange.getOut().setBody(backwards, String.class);
+      // exchange.getOut().setBody(backwards, String.class);
     }
   }
 }
