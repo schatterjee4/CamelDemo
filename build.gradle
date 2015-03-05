@@ -45,6 +45,7 @@ project.ext {
 dependencies {
   compile "org.apache.camel:camel-blueprint:$versionCamel"
   compile "org.apache.camel:camel-spring:$versionCamel"
+  compile "org.apache.camel:camel-gson:$versionCamel"
   testCompile "junit:junit:$versionJunit"
   testCompile "org.easytesting:fest-assert-core:$versionFest"
   testCompile "org.mockito:mockito-core:$versionMockito"

@@ -6,7 +6,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 http://camel.apache.org/schema/spring
 http://camel.apache.org/schema/spring/camel-spring.xsd">
 
-  <camelContext xmlns="http://camel.apache.org/schema/spring" >
+  <camelContext xmlns="http://camel.apache.org/schema/spring">
     <package>nz.co.edmi.servicemixdemo</package>
   </camelContext>
 </beans>

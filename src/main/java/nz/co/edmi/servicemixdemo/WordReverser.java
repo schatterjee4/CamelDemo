@@ -29,7 +29,6 @@ public class WordReverser extends RouteBuilder {
 
   public class ReversingHandler {
 
-
     @Handler
     public String reverseWords(String words) throws Exception {
       StringBuilder output = new StringBuilder();

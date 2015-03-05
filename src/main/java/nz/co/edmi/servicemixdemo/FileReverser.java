@@ -33,8 +33,8 @@ public class FileReverser extends RouteBuilder {
 
 
   /**
-   * It's not a good idea to implement Processor as it creates coupling to camels Exchange and Message classes,
-   * making unit testing much more difficult.
+   * It's not a good idea to implement Processor as it creates coupling to camels Exchange and Message classes, making unit testing much more
+   * difficult.
    */
   private class ReversingProcessor implements Processor {
 

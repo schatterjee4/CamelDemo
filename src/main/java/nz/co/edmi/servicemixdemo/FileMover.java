@@ -2,7 +2,7 @@ package nz.co.edmi.servicemixdemo;
 
 import org.apache.camel.builder.RouteBuilder;
 
-public class FileMover extends RouteBuilder{
+public class FileMover extends RouteBuilder {
 
   @Override
   public void configure() throws Exception {
