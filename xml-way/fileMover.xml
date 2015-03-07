@@ -8,9 +8,9 @@
 
   <camelContext xmlns="http://camel.apache.org/schema/blueprint">
     <route>
-      <from uri="file:///opt/service-mix/service-mix/temp/camel/in"/>
+      <from uri="file:///opt/service-mix/service-mix/temp/CamelDemo/in"/>
       <log message="Moving ${file:name} to the output directory"/>
-      <to uri="file:///opt/service-mix/service-mix/temp/camel/out"/>
+      <to uri="file:///opt/service-mix/service-mix/temp/CamelDemo/out"/>
     </route>
   </camelContext>
 

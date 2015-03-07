@@ -18,11 +18,11 @@ public class WordReverser extends RouteBuilder {
 
   @Override
   public void configure() throws Exception {
-    from("file:///Users/simonvandersluis/camel/WordReverser")
+    from("file:///Users/simonvandersluis/CamelDemo/WordReverser")
             .log("Reversing words in file ${file:name}")
             .bean(new ReversingHandler())
             .log("Reversed words in file ${file:name}")
-            .to("file:///Users/simonvandersluis/camel/dump/");
+            .to("file:///Users/simonvandersluis/CamelDemo/dump/");
   }
 
 

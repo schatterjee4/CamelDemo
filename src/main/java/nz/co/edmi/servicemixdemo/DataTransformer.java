@@ -20,7 +20,7 @@ public class DataTransformer extends RouteBuilder {
 
   @Override
   public void configure() throws Exception {
-    from("file:///Users/simonvandersluis/camel/DataTransformer")
+    from("file:///Users/simonvandersluis/CamelDemo/DataTransformer")
             .unmarshal().json(JsonLibrary.Gson, Foo.class)
             .bean(new FooLoggingHandler());
   }

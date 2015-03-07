@@ -16,15 +16,18 @@ import com.google.gson.Gson;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import com.thoughtworks.xstream.XStream;
 
 public class FooBarWriter {
 
   private Foo foo;
   private Gson gson;
+  private XStream xstream;
 
   @Before
-  public void createGson() {
+  public void createMarshallers() {
     gson = new Gson();
+    xstream = new XStream();
   }
 
   @Before
@@ -39,6 +42,12 @@ public class FooBarWriter {
   @Test
   public void writeFooBarJson() {
     System.out.print(gson.toJson(foo));
+  }
+
+  @Ignore("Not really a test, but useful for creating xml")
+  @Test
+  public void writeFooBarXml() {
+    System.out.print(xstream.toXML(foo));
   }
 
 }

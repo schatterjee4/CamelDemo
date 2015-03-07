@@ -24,11 +24,11 @@ public class FileReverser extends RouteBuilder {
 
   @Override
   public void configure() throws Exception {
-    from("file:///Users/simonvandersluis/camel/FileReverser")
+    from("file:///Users/simonvandersluis/CamelDemo/FileReverser")
             .log("Reversing file ${file:name}")
             .process(new ReversingProcessor())
             .log("Reversed file ${file:name}")
-            .to("file:///Users/simonvandersluis/camel/dump/");
+            .to("file:///Users/simonvandersluis/CamelDemo/dump/");
   }
 
 

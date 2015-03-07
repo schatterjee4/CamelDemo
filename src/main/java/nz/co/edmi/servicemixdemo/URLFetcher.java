@@ -20,10 +20,10 @@ public class URLFetcher extends RouteBuilder {
 
   @Override
   public void configure() throws Exception {
-    from("file:///Users/simonvandersluis/camel/URLFetcher")
+    from("file:///Users/simonvandersluis/CamelDemo/URLFetcher")
             .convertBodyTo(String.class)
             .convertBodyTo(URL.class)
             .convertBodyTo(InputStream.class)
-            .to("file:///Users/simonvandersluis/camel/dump");
+            .to("file:///Users/simonvandersluis/CamelDemo/dump");
   }
 }
