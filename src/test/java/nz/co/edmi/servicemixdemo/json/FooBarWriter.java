@@ -35,6 +35,7 @@ public class FooBarWriter {
     foo = new Foo("test foo");
     foo.addBar(new Bar(10, 50));
     foo.addBar(new Bar(100, 500));
+    foo.addBar(new Bar(1000, 5000));
   }
 
 

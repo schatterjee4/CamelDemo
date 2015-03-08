@@ -48,6 +48,7 @@ dependencies {
   compile "org.apache.camel:camel-gson:$versionCamel"
   compile "org.apache.camel:camel-mail:$versionCamel"
   compile "org.apache.camel:camel-xstream:$versionCamel"
+  compile "org.apache.camel:camel-velocity:$versionCamel"
   testCompile "junit:junit:$versionJunit"
   testCompile "org.easytesting:fest-assert-core:$versionFest"
   testCompile "org.mockito:mockito-core:$versionMockito"
