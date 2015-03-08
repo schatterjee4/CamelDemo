@@ -13,17 +13,18 @@ package nz.co.edmi.servicemixdemo;
 import java.io.InputStream;
 import java.net.URL;
 
-
 import org.apache.camel.builder.RouteBuilder;
+
+import static nz.co.edmi.servicemixdemo.ErrorHandling.USER_HOME;
 
 public class URLFetcher extends RouteBuilder {
 
   @Override
   public void configure() throws Exception {
-    from("file:///Users/simonvandersluis/CamelDemo/URLFetcher")
+    from("file://" + USER_HOME + "/CamelDemo/URLFetcher")
             .convertBodyTo(String.class)
             .convertBodyTo(URL.class)
             .convertBodyTo(InputStream.class)
-            .to("file:///Users/simonvandersluis/CamelDemo/dump");
+            .to("file://" + USER_HOME + "/CamelDemo/dump");
   }
 }

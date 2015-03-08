@@ -18,6 +18,7 @@ import org.apache.camel.Headers;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.dataformat.JsonLibrary;
 
+import static nz.co.edmi.servicemixdemo.ErrorHandling.USER_HOME;
 
 /** Shows off file filtering, and some simple el examples. */
 public class ExpressionLanguage extends RouteBuilder {
@@ -27,11 +28,11 @@ public class ExpressionLanguage extends RouteBuilder {
   public void configure() throws Exception {
 
 
-    from("file:///Users/simonvandersluis/CamelDemo/ExpressionLanguage?include=(?i).*.json")
+    from("file://" + USER_HOME + "/CamelDemo/ExpressionLanguage?include=(?i).*.json")
             .unmarshal().json(JsonLibrary.Gson, Foo.class)
             .to("direct:process");
 
-    from("file:///Users/simonvandersluis/CamelDemo/ExpressionLanguage?include=(?i).*.xml")
+    from("file://" + USER_HOME + "/CamelDemo/ExpressionLanguage?include=(?i).*.xml")
             .unmarshal().xstream()
             .to("direct:process");
 
@@ -50,7 +51,7 @@ public class ExpressionLanguage extends RouteBuilder {
 
     from("direct:archive")
             .marshal().xstream()
-            .to("file:///Users/simonvandersluis/CamelDemo/archive/?fileName=$simple{date:now:yyyy'/'MM'/'dd}/${file:name}");
+            .to("file://" + USER_HOME + "/CamelDemo/archive/?fileName=$simple{date:now:yyyy'/'MM'/'dd}/${file:name}");
 
 
   }

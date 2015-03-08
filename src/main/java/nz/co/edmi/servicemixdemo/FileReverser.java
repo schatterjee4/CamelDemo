@@ -10,25 +10,23 @@
  */
 package nz.co.edmi.servicemixdemo;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-
 import org.apache.camel.Exchange;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
+
+import static nz.co.edmi.servicemixdemo.ErrorHandling.USER_HOME;
 
 
 public class FileReverser extends RouteBuilder {
 
   @Override
   public void configure() throws Exception {
-    from("file:///Users/simonvandersluis/CamelDemo/FileReverser")
+    from("file://" + USER_HOME + "/CamelDemo/FileReverser")
             .log("Reversing file ${file:name}")
             .process(new ReversingProcessor())
             .log("Reversed file ${file:name}")
-            .to("file:///Users/simonvandersluis/CamelDemo/dump/");
+            .to("file://" + USER_HOME + "/CamelDemo/dump/");
   }
 
 

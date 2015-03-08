@@ -10,21 +10,22 @@
  */
 package nz.co.edmi.servicemixdemo;
 
-import java.io.IOException;
 import java.net.ConnectException;
 
 import nz.co.edmi.servicemixdemo.json.Foo;
-import org.apache.camel.Handler;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.dataformat.JsonLibrary;
 
 public class ErrorHandling extends RouteBuilder {
 
+  public static final String USER_HOME = System.getProperty("user.home");
+
   @Override
   public void configure() throws Exception {
 
-    errorHandler(deadLetterChannel("log:Error Foo?level=ERROR"));
+//    errorHandler(deadLetterChannel("Error in file ${file:name} Sending to dead letter channel?level=ERROR"));
+    errorHandler(deadLetterChannel("direct:errors"));
 
     onException(ConnectException.class) // smtp server unavailable
             .maximumRedeliveries(100)
@@ -33,22 +34,16 @@ public class ErrorHandling extends RouteBuilder {
             .retryAttemptedLogLevel(LoggingLevel.WARN);
 
 
-            from("file:///Users/simonvandersluis/CamelDemo/ErrorHandling")
-                    .unmarshal().json(JsonLibrary.Gson, Foo.class)
-                    .bean(new FooErrorThrowingHandler())
-                    .marshal().json(JsonLibrary.Gson)
-                    .to("smtp://localhost:1025?password=somepwd&username=someuser");
+    from("file://" + USER_HOME + "/CamelDemo/ErrorHandling")
+            .unmarshal().json(JsonLibrary.Gson, Foo.class)
+            .marshal().json(JsonLibrary.Gson)
+            .to("smtp://localhost:1025?password=somepwd&username=someuser")
+            .log("Email sent");
+
+
+    from("direct:errors")
+            .log("Error in file ${file:name}");
   }
 
-  public class FooErrorThrowingHandler {
-
-    @Handler
-    public void handle(Foo foo) {
-      if ("error".equals(foo.getName())) {
-        throw new IllegalArgumentException("error foo detected");
-      }
-    }
-
-  }
 
 }

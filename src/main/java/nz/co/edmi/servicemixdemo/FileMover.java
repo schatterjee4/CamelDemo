@@ -2,12 +2,14 @@ package nz.co.edmi.servicemixdemo;
 
 import org.apache.camel.builder.RouteBuilder;
 
+import static nz.co.edmi.servicemixdemo.ErrorHandling.USER_HOME;
+
 public class FileMover extends RouteBuilder {
 
   @Override
   public void configure() throws Exception {
-    from("file:///Users/simonvandersluis/CamelDemo/FileMover")
+    from("file://" + USER_HOME + "/CamelDemo/FileMover")
             .log("Moving ${file:name} to the output directory")
-            .to("file:///Users/simonvandersluis/CamelDemo/dump");
+            .to("file://" + USER_HOME + "/CamelDemo/dump");
   }
 }
