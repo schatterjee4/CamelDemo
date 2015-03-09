@@ -37,4 +37,11 @@ public class Foo {
   public void addBar(Bar bar) {
     this.bars.add(bar);
   }
+
+
+  @Override
+  public String toString() {
+    return "I'm a foo named " + name + " with " + bars.size() + " bars";
+  }
+
 }

@@ -52,6 +52,7 @@ public class RecipientList extends RouteBuilder {
       }
       routes.add("direct:log");
       routes.add("direct:rl-archive");
+      routes.add("smtp://localhost:1025?password=somepwd&username=directFromRecipientList@foo.org&from=simon@x.org");
       return routes;
     }
   }
