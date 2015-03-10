@@ -1,5 +1,4 @@
 apply plugin: 'java'
-apply plugin: 'maven'
 apply plugin: 'idea'
 apply plugin: 'osgi'
 
@@ -49,9 +48,12 @@ dependencies {
   compile "org.apache.camel:camel-mail:$versionCamel"
   compile "org.apache.camel:camel-xstream:$versionCamel"
   compile "org.apache.camel:camel-velocity:$versionCamel"
+  testCompile "org.apache.camel:camel-test:$versionCamel"
+  testCompile "org.apache.camel:camel-test-blueprint:$versionCamel"
   testCompile "junit:junit:$versionJunit"
   testCompile "org.easytesting:fest-assert-core:$versionFest"
   testCompile "org.mockito:mockito-core:$versionMockito"
+  testCompile "commons-io:commons-io:2.4"
 }
 
 

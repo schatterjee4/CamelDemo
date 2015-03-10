@@ -1,0 +1,1 @@
+<?xml version='1.0' encoding='UTF-8'?><nz.co.edmi.servicemixdemo.json.Foo><name>test foo</name><bars><nz.co.edmi.servicemixdemo.json.Bar><weight>10</weight><age>50</age></nz.co.edmi.servicemixdemo.json.Bar><nz.co.edmi.servicemixdemo.json.Bar><weight>100</weight><age>500</age></nz.co.edmi.servicemixdemo.json.Bar></bars></nz.co.edmi.servicemixdemo.json.Foo>

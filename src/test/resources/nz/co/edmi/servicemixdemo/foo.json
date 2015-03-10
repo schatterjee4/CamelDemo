@@ -1,0 +1,13 @@
+{
+  "name": "test foo",
+  "bars": [
+    {
+      "weight": 10,
+      "age": 50
+    },
+    {
+      "weight": 100,
+      "age": 500
+    }
+  ]
+}

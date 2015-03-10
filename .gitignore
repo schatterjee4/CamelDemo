@@ -3,3 +3,5 @@
 ServiceMixDemo.iml
 .gradle
 *.iws
+*.ipr
+
