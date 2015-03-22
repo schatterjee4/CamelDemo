@@ -37,7 +37,7 @@ public class ExpressionLanguage extends RouteBuilder {
             .to("direct:process");
 
 
-    from("direct:process")
+    from("direct:process") // expecting a Foo
             .bean(new BarCounter())
             .log("Counted ${headers[barCount]} bars")
             .choice()

@@ -10,6 +10,7 @@
  */
 package nz.co.edmi.servicemixdemo.converters;
 
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -22,4 +23,11 @@ public final class URLConverter {
   public static URL toUrl(String url) throws MalformedURLException {
     return new URL(url);
   }
+
+  @Converter
+  public static InputStream toIs(URL url) throws Exception {
+    return url.openStream();
+  }
+
 }
+

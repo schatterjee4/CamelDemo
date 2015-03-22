@@ -50,7 +50,7 @@ public class FileReverser extends RouteBuilder {
       inMessage.setBody(backwards);
 
       // In out will loose the headers
-      // exchange.getOut().setBody(backwards, String.class);
+//      exchange.getOut().setBody(backwards, String.class);
     }
   }
 }
