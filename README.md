@@ -12,6 +12,9 @@ To install the dependencies into Service mix, run the following commands from th
 * features:install camel-gson
 * features:install camel-mail
 * features:install camel-xstream
+* features:install activemq
+* features:install activemq-broker
+* features:install activemq-camel
 
 [Fake SMPT](https://nilhcem.github.io/FakeSMTP/) is also useful for the email based routes.
 
